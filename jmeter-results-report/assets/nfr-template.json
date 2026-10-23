@@ -1,0 +1,27 @@
+{
+  "source": "Replace with where these numbers come from, e.g. 'Assignment brief, NFR doc v1'",
+  "placeholder": true,
+
+  "defaults": {
+    "p95_ms": 1000,
+    "error_rate_pct": 1.0
+  },
+
+  "samplers": {
+    "POST /auth (Create Token)": { "p95_ms": 500, "p99_ms": 800 },
+    "GET /api/users": { "p90_ms": 700 }
+  },
+
+  "total": {
+    "error_rate_pct": 1.0,
+    "throughput_rps_min": 5
+  },
+
+  "_help": {
+    "metrics": "avg_ms, p90_ms, p95_ms, p99_ms, max_ms (upper limits); error_rate_pct (upper limit, percent); throughput_rps_min (lower limit, requests per second)",
+    "defaults": "applied to every sampler label; a 'samplers' entry overrides individual metrics for that label",
+    "samplers": "keys must match the sampler label exactly as it appears in the .jtl",
+    "total": "checked against the TOTAL row only",
+    "placeholder": "set to false once the values are agreed; while true the report flags them as unagreed"
+  }
+}
